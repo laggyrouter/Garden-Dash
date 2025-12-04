@@ -44,7 +44,10 @@ public class HealthManager : MonoBehaviour
         UpdateHearts();
         if (currentLives <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (GameOverUI.instance != null) 
+            {
+                GameOverUI.instance.ShowGameOver();
+            }
         }
         else
         {

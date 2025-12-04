@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+using System.Linq;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -8,17 +10,67 @@ public class ScoreManager : MonoBehaviour
     public int score = 0;
     public TextMeshProUGUI scoreText;
 
+    public List<int> highScores = new List<int>();
+    public int maxHighScores = 5;
+
+
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+        }
         else
+        {
             Destroy(gameObject);
+            return;
+        }
+
+        LoadHighScores();
+        UpdateScoreUI();
+
     }
 
     public void AddScore(int amount)
     {
         score += amount;
         scoreText.text = "Score: " + score;
+    }
+
+    public void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+    }
+
+    public void SaveScoretoHighScores()
+    {
+        highScores.Add(score);
+        highScores = highScores.OrderByDescending(s => s).Take(maxHighScores).ToList();
+
+        SaveScoretoHighScores();
+    }
+
+    void SaveHighScores()
+    {
+        for (int i = 0; i < highScores.Count; i++)
+        {
+            PlayerPrefs.SetInt("HighScore" + i, highScores[i]);
+        }
+
+        PlayerPrefs.SetInt("HighScoreCount", highScores.Count);
+        PlayerPrefs.Save();
+    }
+
+    void LoadHighScores()
+    {
+        highScores.Clear();
+        int count = PlayerPrefs.GetInt("HighScoreCount", 0);
+        for (int i = 0; i < count; i++)
+        {
+            highScores.Add(PlayerPrefs.GetInt("HighScore" + i, 0));
+        }
     }
 }
