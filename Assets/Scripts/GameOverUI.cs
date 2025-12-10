@@ -27,6 +27,11 @@ public class GameOverUI : MonoBehaviour
 
     public void ShowGameOver()
     {
+        if (ScoreManager.instance != null)
+        {
+            ScoreManager.instance.SaveScoretoHighScores(); //highscore guard
+        }
+
         panel.SetActive(true);
         Time.timeScale = 0f;
     }

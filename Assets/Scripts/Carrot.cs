@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Carrot : MonoBehaviour
 {
     public int scoreValue = 10;
-    public float respawnDelay = 5f;
+    public float respawnDelay = 4.4f;
     public bool shouldRespawn = true;
 
     [Header("Respawn spots")]

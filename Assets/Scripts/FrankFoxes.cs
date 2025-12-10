@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FrankFoxes : MonoBehaviour
 {
-    public float speed = 2f;
+    public float speed = 0.1f;
     public float chaseRadius = 200f;
     public float bumpForce = 1.5f;
 
@@ -27,6 +27,14 @@ public class FrankFoxes : MonoBehaviour
 
         if (toPlayer.magnitude <= chaseRadius)
         {
+            float currentSpeed = speed;
+
+            if (ScoreManager.instance != null)
+            {
+                currentSpeed = speed + ScoreManager.instance.score * 0.0008f;
+                currentSpeed = Mathf.Min(currentSpeed, speed * 0.8f); // speed cap
+            }
+
             Vector2 move = toPlayer.normalized * speed;
             rb.linearVelocity = move;
         }

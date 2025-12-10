@@ -19,21 +19,19 @@ public class ScoreManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
             LoadHighScores();
             UpdateScoreUI();
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
     }
 
     public void AddScore(int amount)
     {
         score += amount;
-        scoreText.text = "Score: " + score;
+        UpdateScoreUI();
     }
 
     public void UpdateScoreUI()
@@ -44,12 +42,17 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public bool hasSavedScore = false;
+
     public void SaveScoretoHighScores()
     {
+        if (hasSavedScore) return;
+        
         highScores.Add(score);
         highScores = highScores.OrderByDescending(s => s).Take(maxHighScores).ToList();
 
         SaveHighScores();
+        hasSavedScore = true;
     }
 
     void SaveHighScores()
