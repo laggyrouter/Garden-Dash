@@ -50,7 +50,7 @@ public class ScoreManager : MonoBehaviour
         highScores.Add(score);
         highScores = highScores.OrderByDescending(s => s).Take(maxHighScores).ToList();
 
-        SaveScoretoHighScores();
+        SaveHighScores();
     }
 
     void SaveHighScores()
