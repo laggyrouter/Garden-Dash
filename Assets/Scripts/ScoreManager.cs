@@ -19,16 +19,15 @@ public class ScoreManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+            LoadHighScores();
+            UpdateScoreUI();
         }
         else
         {
             Destroy(gameObject);
             return;
         }
-
-        LoadHighScores();
-        UpdateScoreUI();
-
     }
 
     public void AddScore(int amount)

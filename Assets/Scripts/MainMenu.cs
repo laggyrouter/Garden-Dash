@@ -4,10 +4,16 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public string gameSceneName = "MainGame";
-    
+    public string highScoreSceneName = "HighScore";
+
     public void StartGame()
     {
         SceneManager.LoadScene(gameSceneName);
+    }
+
+    public void OpenHIghScores()
+    {
+        SceneManager.LoadScene(highScoreSceneName);
     }
 
     public void QuitGame()

@@ -13,7 +13,6 @@ public class GameOverUI : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -42,6 +41,13 @@ public class GameOverUI : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
+
+        if (ScoreManager.instance != null)
+        {
+            ScoreManager.instance.SaveScoretoHighScores();
+            ScoreManager.instance.score = 0;
+            ScoreManager.instance.UpdateScoreUI();
+        }
         SceneManager.LoadScene(mainMenuSceneName);
     }
 }
