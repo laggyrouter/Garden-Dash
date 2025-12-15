@@ -3093,7 +3093,7 @@ GameObject:
   - component: {fileID: 1236943456}
   - component: {fileID: 1236943455}
   - component: {fileID: 1236943457}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Hedges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3944,7 +3944,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 84347f136038d75409b491c97dfd9e3f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4009,7 +4009,7 @@ CompositeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 84347f136038d75409b491c97dfd9e3f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4034,7 +4034,7 @@ CompositeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths: []
@@ -4548,9 +4548,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: fox2
       objectReference: {fileID: 0}
+    - target: {fileID: 2922371112429321861, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: speed
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: baseSpeed
@@ -4558,20 +4562,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: chaseRadius
-      value: 200
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: wallLayer.m_Bits
-      value: 8
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: speedIncreasePerSecond
       value: 0.002
       objectReference: {fileID: 0}
+    - target: {fileID: 6296335675283723177, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_LinearDamping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8031832149567873183, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: m_Radius
       value: 0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 8031832149567873183, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 84347f136038d75409b491c97dfd9e3f, type: 2}
     - target: {fileID: 8362180355610893380, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.653823
@@ -5254,9 +5270,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: fox3
       objectReference: {fileID: 0}
+    - target: {fileID: 2922371112429321861, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: speed
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: baseSpeed
@@ -5264,20 +5284,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: chaseRadius
-      value: 200
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: wallLayer.m_Bits
-      value: 8
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: speedIncreasePerSecond
       value: 0.002
       objectReference: {fileID: 0}
+    - target: {fileID: 6296335675283723177, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_LinearDamping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8031832149567873183, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: m_Radius
       value: 0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 8031832149567873183, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 84347f136038d75409b491c97dfd9e3f, type: 2}
     - target: {fileID: 8362180355610893380, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.326878
@@ -7465,11 +7497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2922371112429321861, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: speed
-      value: 0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: baseSpeed
@@ -7477,11 +7509,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: chaseRadius
-      value: 200
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: wallLayer.m_Bits
-      value: 8
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3940185786834427530, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: speedIncreasePerSecond
@@ -7491,10 +7527,18 @@ PrefabInstance:
       propertyPath: wanderDecisionInterval
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 6296335675283723177, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_LinearDamping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8031832149567873183, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: m_Radius
       value: 0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 8031832149567873183, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 84347f136038d75409b491c97dfd9e3f, type: 2}
     - target: {fileID: 8362180355610893380, guid: cdcbe8ae589902940a2c223552a6cf7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.54
