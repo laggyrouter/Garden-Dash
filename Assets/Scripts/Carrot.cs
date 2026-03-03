@@ -16,6 +16,9 @@ public class Carrot : MonoBehaviour
     private SpriteRenderer sr;
     private Collider2D col;
 
+    public AudioSource sfxSource;
+    public AudioClip pickupClip;
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -54,6 +57,11 @@ public class Carrot : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isCollected = true;
+
+            if (sfxSource != null && pickupClip != null)
+            {
+                sfxSource.PlayOneShot(pickupClip);
+            }
 
             if (ScoreManager.instance != null)
             {

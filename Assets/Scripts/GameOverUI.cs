@@ -8,6 +8,9 @@ public class GameOverUI : MonoBehaviour
     public GameObject panel;
     public string mainMenuSceneName = "MainMenu";
 
+    public AudioClip gameOverClip;
+    private AudioSource audioSource;
+
     private void Awake()
     {
         if (instance == null)
@@ -17,7 +20,10 @@ public class GameOverUI : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -27,6 +33,11 @@ public class GameOverUI : MonoBehaviour
 
     public void ShowGameOver()
     {
+        if (audioSource != null && gameOverClip != null)
+        {
+            audioSource.PlayOneShot(gameOverClip);
+        }
+
         if (ScoreManager.instance != null)
         {
             ScoreManager.instance.SaveScoretoHighScores(); //highscore guard

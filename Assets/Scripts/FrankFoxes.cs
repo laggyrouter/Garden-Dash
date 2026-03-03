@@ -8,8 +8,8 @@ public class FrankFoxes : MonoBehaviour
     public float speed = 0.3f;
 
     [Header("Chase")]
-    public float chaseEnterRadius = 20f;
-    public float chaseExitRadius = 24f;
+    public float chaseEnterRadius = 4f;
+    public float chaseExitRadius = 6f;
 
     [Header("Patrol")]
     public float patrolSpeedMultiplier = 0.5f;
@@ -214,14 +214,18 @@ public class FrankFoxes : MonoBehaviour
         if (IsWall(c.collider.gameObject))
         {
             ApplyWallSlide(c);
-            state = FoxState.Idle;
-            stateTimer = wallHitIdle;
+
+            if (state == FoxState.Patrol)
+            {
+                PickOpenDirection();
+                stateTimer = Random.Range(patrolChangeMin, patrolChangeMax);
+            }                  
         }
     }
 
     void OnCollisionStay2D(Collision2D c)
     {
-        if (IsWall(c.collider.gameObject))
+        if (IsWall(c.collider.gameObject) && wallAvoidTimer <= 0f)
             ApplyWallSlide(c);
     }
 
@@ -243,7 +247,21 @@ public class FrankFoxes : MonoBehaviour
             ? ((Vector2)target.position - rb.position).normalized
             : patrolDir;
 
-        wallAvoidDir = Vector2.Dot(t1, desired) > Vector2.Dot(t2, desired) ? t1 : t2;
+        Vector2 slide = Vector2.Dot(t1, desired) > Vector2.Dot(t2, desired) ? t1 : t2;
+
+        //corner fix
+        if (Blocked(slide))
+        {
+            slide = -slide;
+        }
+
+        //2 corner fix
+        if (Blocked(slide))
+        {
+            slide = -n;
+        }
+
+        wallAvoidDir = slide.normalized;
         wallAvoidTimer = wallAvoidTime;
     }
 }

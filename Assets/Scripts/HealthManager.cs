@@ -14,7 +14,10 @@ public class HealthManager : MonoBehaviour
     public Sprite emptyHeartSprite;
 
     public float invincibilityTime = 2.2f;
-    private bool canTakeDamage = true;  
+    private bool canTakeDamage = true;
+
+    public AudioClip loseHealthClip;
+    private AudioSource audioSource;
 
     public void Awake()
     {
@@ -25,7 +28,10 @@ public class HealthManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Start()
@@ -36,11 +42,19 @@ public class HealthManager : MonoBehaviour
 
     public void TakeHit()
     {
+        if (InvincibilityPickup.IsInvincible) return;
+
         if (!canTakeDamage || currentLives <= 0)
         {
             return;
         }
         currentLives--;
+
+        if (audioSource != null && loseHealthClip != null)
+        {
+            audioSource.PlayOneShot(loseHealthClip);
+        }
+
         UpdateHearts();
         if (currentLives <= 0)
         {
